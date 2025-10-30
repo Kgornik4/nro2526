@@ -23,7 +23,6 @@ for i = 1:steviloVrednosti
 end
 fclose(fileID);
 
-% Predpostavimo, da je vektor t že definiran (iz naloga1.m)
 plot(t, P, 'red', 'LineWidth', 2);             
 xlabel('t [s]');
 ylabel('P [W]');
