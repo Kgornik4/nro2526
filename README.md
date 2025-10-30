@@ -1,3 +1,2 @@
-# nro2526
-
-vaja1
+Kristjan Gornik
+23231071
