@@ -1,7 +1,7 @@
 %           NALOGA 1
 
 filename = "DN1/naloga1_1.txt";
-delimiter = ";";
+delimiter = " ";
 headerlines = 2; 
 podatki = importdata(filename, delimiter, headerlines);
 
@@ -9,17 +9,24 @@ t = podatki.data;
 
 %           NALOGA 2
 
-fileID = fopen("DN1/naloga1_2.txt");
+fileID = fopen("naloga1_2.txt");
 
 prvaVrstica = fgetl(fileID);                   
-steviloVrednosti = str2double(prvaVrstica);    
+steviloVrednosti = str2double(regexprep(prvaVrstica, '[^\d.]', ''));
 
-P = zeros(steviloVrednosti, 1);                
+if isnan(steviloVrednosti)
+    error('Prva vrstica ne vsebuje veljavnega stevila podatkov! Prva vrstica: %s', prvaVrstica);
+end
+
+P = zeros(steviloVrednosti, 1);
 
 for i = 1:steviloVrednosti
-    trenutnaVrstica = fgetl(fileID);          
-    trenutnaVrednost = str2double(trenutnaVrstica); 
-    P(i) = trenutnaVrednost;                   
+    trenutnaVrstica = fgetl(fileID);
+    trenutnaVrednost = str2double(trenutnaVrstica);
+    if isnan(trenutnaVrednost)
+        error("Vrstica %d ne vsebuje veljavne številčne vrednosti! Vsebina: %s", i+1, trenutnaVrstica);
+    end
+    P(i) = trenutnaVrednost;
 end
 fclose(fileID);
 
