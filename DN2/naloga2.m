@@ -1,6 +1,6 @@
 % DN 2
 
-fid = fopen('DN2_23231071\vozlisca_temperature_dn2_8.txt', 'r');
+fid = fopen('vozlisca_temperature_dn2_8.txt', 'r');
 
 opts = delimitedTextImportOptions("NumVariables", 3);
 opts.DataLines = [5 Inf];            
@@ -10,7 +10,7 @@ opts.VariableTypes = ["double","double","double"];
 opts.ConsecutiveDelimitersRule = "join";
 opts.EmptyLineRule = "read";
 
-data = readmatrix('DN2_23231071\vozlisca_temperature_dn2_8.txt', opts);
+data = readmatrix('vozlisca_temperature_dn2_8.txt', opts);
 
 x = data(:,1);
 y = data(:,2);
@@ -26,7 +26,7 @@ cas_scattered = toc;
 
 fprintf('Temperatura v točki (%.3f, %.3f) = %.4f °C\n', tx, ty, T_interp);
 
-fid = fopen('DN2_23231071\vozlisca_temperature_dn2_8.txt','r');
+fid = fopen('vozlisca_temperature_dn2_8.txt','r');
 fgetl(fid);
 Nx = str2double(regexp(fgetl(fid),'\d+','match'));
 Ny = str2double(regexp(fgetl(fid),'\d+','match'));
@@ -46,7 +46,7 @@ fprintf('GRIDDEDINTERPOLANT: Temperatura v točki (%.3f, %.3f) = %.4f °C\n', tx
 
 % BILINEARNA FUNKCIJA
 
-celice_file = 'DN2_23231071\celice_dn2_8.txt';
+celice_file = 'celice_dn2_8.txt';
 celice = readmatrix(celice_file, 'NumHeaderLines', 2, 'Delimiter', ',');
 
 Nc = size(celice,1); 
