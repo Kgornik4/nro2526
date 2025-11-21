@@ -1,3 +1,1 @@
-ScatteredInterpolant je najhitrejši, ker hitro poišče lokalni trikotnik pri razpršenih podatkih.
-Lastna bilinearna interpolacija je vmes — išče celico, potem hitro izračuna.
-GriddedInterpolant je najpočasnejši v tej obratni razlagi (zaradi režije pri upravljanju mreže).
+GriddedInterpolant je najhitrejša, ker dela na urejeni rešetki, ima vnaprej urejeno strukturo in lahko neposredno izračuna indeks celice ter vrednost, torej ni treba pregledovati vseh celic kot pri razpršenih podatkih.
