@@ -125,7 +125,6 @@ int main() {
   for (int ii=0; ii<2000; ii++)
     {
 
-      // OpenMP: direktno paraleliziranje zanke po jj ne gre, ker GS pri T[jj] uporablja ze posodobljene T[0..jj-1] (race condition).
       for (int jj = 0; jj < n_b; jj++)
         {
           double sum = 0.0;
